@@ -23,8 +23,8 @@ app.use(routes);
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
-
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/nytimesreact");
+var MONGODB_URI = 'mongodb://heroku_lb65vn4c:e2g1o27v5ekvkpes9jqqbmv5kd@ds219191.mlab.com:19191/heroku_lb65vn4c'
+mongoose.connect(MONGODB_URI); //|| "mongodb://localhost/nytimesreact");
 
 app.listen(PORT, () => {
   console.log(`🌎 ==> Server now on port ${PORT}!`);
